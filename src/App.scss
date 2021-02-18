@@ -1,0 +1,10 @@
+.main {
+  background: url('./img/RectangleLg.png') #eef2f5 bottom repeat-x;
+
+  &__container {
+    width: 1440px;
+    display: flex;
+    justify-content: flex-end;
+    margin: 0 auto;
+  }
+}
