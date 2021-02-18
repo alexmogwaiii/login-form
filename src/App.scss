@@ -1,0 +1,46 @@
+@import "/src/styles/mixins.scss";
+
+.main {
+  background: url('/img/bgTextureLg.png') #eef2f5 bottom repeat-x;
+
+  @include onDesktop {
+    & {
+      background-image: url('/img/bgTextureMd.png');
+    }
+  }
+
+  @include onTablet {
+    & {
+      background-image: url('/img/bgTextureSm.png');
+    }
+  }
+
+  @include onMobileSm {
+    & {
+      background-image: url('/img/bgTextureXs.png');
+    }
+  }
+
+  &__container {
+    max-width: 1440px;
+    min-height: 100vh;
+    display: flex;
+    justify-content: flex-end;
+    margin: 0 auto;
+
+    background: url('/img/bgManLg.png') no-repeat;
+    background-position: -40px 25px;
+    background-size: contain;
+
+    @include onDesktop {
+      background-image: url('/img/bgManMd.png');
+    }
+
+    @include onTablet {
+      & {
+        justify-content: center;
+        background-image: none;
+      }
+    }
+  }
+}
