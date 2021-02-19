@@ -29,17 +29,32 @@
     margin: 0 auto;
 
     background: url('/img/bgManLg.png') no-repeat;
-    background-position: -40px 25px;
+    background-position: -30px 25px;
     background-size: contain;
 
     @include onDesktop {
       background-image: url('/img/bgManMd.png');
+      background-position: 0 25px;
     }
 
     @include onTablet {
       & {
         justify-content: center;
-        background-image: none;
+        background: url('/img/bgRopeMd.png') no-repeat 30px 10px,
+                    url('/img/bgX.png') no-repeat 93% 100px,
+                    url('/img/bgPlusMd.png') no-repeat 2% 57%,
+                    url('/img/bgRopeSm.png') no-repeat 99% 61%,
+                    url('/img/bgCardOne.png') no-repeat 1% 97%,
+                    url('/img/bgCardTwo.png') no-repeat 53% 101%,
+                    url('/img/bgCardThree.png') no-repeat 95% 103%,
+      }
+    }
+
+    @include onMobileSm {
+      & {
+        background: url('/img/bgRopeXs.png') no-repeat 30px 10px,
+                    url('/img/bgXSm.png') no-repeat 5% 98%,
+                    url('/img/bgRopeXs2.png') no-repeat 100% 102%,
       }
     }
   }

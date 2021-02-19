@@ -30,8 +30,8 @@
   @include onMobileSm {
     & {
       margin: 90px 16px;
-      height: auto;
-      padding-bottom: 56px;
+      padding-bottom: 40px;
+      height: 100%;
     }
   }
 
@@ -40,6 +40,8 @@
     text-transform: uppercase;
     font-weight: 500;
     margin: 88px 0 0;
+
+    color: #10204C;
   }
 
   &__form {

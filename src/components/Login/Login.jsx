@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import PropTypes from 'prop-types';
 import { makeStyles, withStyles } from '@material-ui/core/styles';
 import Button from '@material-ui/core/Button';
 import FormControl from '@material-ui/core/FormControl';
@@ -54,10 +55,13 @@ const useStyles = makeStyles((theme) => ({
     position: 'absolute',
     top: '50px',
     fontSize: '14px',
+    [theme.breakpoints.down('xs')]: {
+      top: '40px',
+    }
   },
 }));
 
-export const Login = () => {
+export const Login = React.memo(({ setAuthorized }) => {
   const classes = useStyles();
   const [email, setEmail] = useState({
     query: '',
@@ -94,7 +98,17 @@ export const Login = () => {
     if (!password.query || !email.query) {
       setEmail({ ...email, error: !email.query });
       setPassword({ ...password, error: !password.query });
+
+      return;
     }
+
+    setAuthorized({
+      isOpen: true,
+      user: {
+        email: email.query,
+        password: password.query,
+      }
+    })
   }
 
   return (
@@ -155,11 +169,11 @@ export const Login = () => {
                     edge="end"
                   >
                     {isPasswordShown
-                      ? <Visibility 
-                          color={password.error ? 'error' : 'action'}
+                      ? <VisibilityOff
+                          color={password.error ? 'error' : 'disabled'}
                         />
-                      : <VisibilityOff
-                          color={password.error ? 'error' : 'action'}
+                      : <Visibility
+                          color={password.error ? 'error' : 'disabled'}
                         />}
                   </IconButton>
                 </InputAdornment>
@@ -199,4 +213,8 @@ export const Login = () => {
       </div>
     </div>
   )
+});
+
+Login.propTypes = {
+  setAuthorized: PropTypes.func.isRequired,
 };
